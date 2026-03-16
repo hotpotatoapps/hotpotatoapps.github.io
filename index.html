@@ -3,105 +3,683 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hot Potato Apps - Word Blitzen & Block Blitzen</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <meta name="theme-color" content="#091020">
+  <title>Hot Potato Apps | Tile Glider, Word Blitzen, Block Blitzen</title>
+  <meta
+    name="description"
+    content="Hot Potato Apps makes fast, stylish puzzle games for quick sessions, daily check-ins, and leaderboard chasing."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0d1730;
+      --panel: rgba(12, 20, 38, 0.8);
+      --panel-strong: rgba(10, 17, 31, 0.94);
+      --line: rgba(180, 203, 255, 0.14);
+      --text: #eef4ff;
+      --muted: rgba(226, 234, 255, 0.72);
+      --soft: rgba(226, 234, 255, 0.52);
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --tile-accent: #61d0ff;
+      --word-accent: #ff6b92;
+      --block-accent: #ffbf4f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(57, 114, 255, 0.32), transparent 28%),
+        radial-gradient(circle at 82% 16%, rgba(255, 104, 162, 0.2), transparent 22%),
+        radial-gradient(circle at 70% 82%, rgba(64, 224, 208, 0.16), transparent 26%),
+        linear-gradient(155deg, #050b17 0%, #081120 38%, #0a1630 100%);
+      color: var(--text);
+      font-family: "Space Grotesk", sans-serif;
+    }
+
     body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #f0f2f5, #c9d6ff);
       margin: 0;
-      padding: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      border-radius: 999px;
+      filter: blur(70px);
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 28rem;
+      height: 28rem;
+      left: -6rem;
+      top: 8rem;
+      background: rgba(61, 143, 255, 0.22);
+    }
+
+    body::after {
+      width: 24rem;
+      height: 24rem;
+      right: -4rem;
+      top: 24rem;
+      background: rgba(255, 123, 150, 0.16);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 42px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: none;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #9be15d, #00e3ae);
+      box-shadow: 0 0 16px rgba(0, 227, 174, 0.5);
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      max-width: 10ch;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5.8rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-copy {
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.16rem);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: #041120;
+      background: linear-gradient(135deg, #8ee7ff 0%, #5da8ff 100%);
+      box-shadow: 0 12px 28px rgba(72, 148, 255, 0.28);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .button-disabled {
+      cursor: default;
+      color: rgba(255, 255, 255, 0.84);
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: none;
+    }
+
+    .button-disabled:hover {
+      transform: none;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 18px 18px 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-family: "Sora", sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      color: var(--soft);
+      font-size: 0.95rem;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 34px 0 18px;
+      padding: 0 4px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      letter-spacing: -0.05em;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 30rem;
+      color: var(--soft);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .app-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+        rgba(7, 13, 26, 0.9);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .app-card::before {
+      content: "";
+      position: absolute;
+      inset: auto auto 0 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 34%),
+        radial-gradient(circle at bottom right, var(--accent-glow), transparent 32%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .app-card--tile {
+      --accent-glow: rgba(84, 214, 255, 0.16);
+    }
+
+    .app-card--word {
+      --accent-glow: rgba(255, 102, 153, 0.15);
+    }
+
+    .app-card--block {
+      --accent-glow: rgba(255, 186, 75, 0.16);
+    }
+
+    .card-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .status,
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .status {
+      font-weight: 700;
+    }
+
+    .status-live {
+      background: rgba(111, 255, 187, 0.12);
+      color: #baf7d0;
+      border-color: rgba(111, 255, 187, 0.24);
+    }
+
+    .status-soon {
+      background: rgba(97, 208, 255, 0.14);
+      color: #c5f4ff;
+      border-color: rgba(97, 208, 255, 0.24);
+    }
+
+    .card-head {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .icon-shell {
+      flex: none;
+      width: 84px;
+      height: 84px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.32);
+      background: rgba(0, 0, 0, 0.28);
+    }
+
+    .icon-shell img,
+    .icon-shell svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-title {
+      margin: 0 0 6px;
+      font-family: "Sora", sans-serif;
+      font-size: 1.45rem;
+      letter-spacing: -0.04em;
+    }
+
+    .card-tagline {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .card-copy {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.97rem;
+      line-height: 1.72;
+    }
+
+    .chip-row {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      color: rgba(238, 244, 255, 0.86);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .card-actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 6px;
+    }
+
+    .card-actions .button {
+      min-height: 48px;
+      padding-inline: 18px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      margin-top: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-    .container {
-      max-width: 900px;
-      width: 90%;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      padding: 40px;
-      text-align: center;
-    }
-    h1, h2, h3 {
-      color: #333;
-    }
-    h1 {
-      font-size: 2.8em;
-      margin-bottom: 0.3em;
-    }
-    h2 {
-      font-size: 2.2em;
-      margin-top: 2em;
-    }
-    h3 {
-      font-size: 1.5em;
-      margin-bottom: 0.5em;
-    }
-    p, ul, li {
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      text-align: left;
-    }
-    li {
-      margin-bottom: 0.5em;
-    }
-    .app-link {
-      display: inline-block;
-      padding: 12px 25px;
-      background: #0070c9;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 25px;
-      font-size: 1.2em;
-      transition: background 0.3s ease;
-      margin: 20px 0;
-    }
-    .app-link:hover {
-      background: #005ea6;
-    }
-    .section {
-      margin-bottom: 2em;
-    }
-    .divider {
-      border-top: 2px solid #ddd;
-      margin: 3em 0;
-    }
-    a {
-      color: #0070c9;
-      text-decoration: none;
-    }
-    a:hover {
+
+    .footer-links a {
+      color: #d7ebff;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       text-decoration: underline;
+      text-decoration-color: rgba(215, 235, 255, 0.35);
+      text-underline-offset: 0.28em;
+    }
+
+    @media (max-width: 980px) {
+      .page {
+        width: min(100% - 1.25rem, 960px);
+      }
+
+      .app-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .section-head p {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding: 28px 22px;
+      }
+
+      .stat-row {
+        grid-template-columns: 1fr;
+      }
+
+      .card-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .icon-shell {
+        width: 76px;
+        height: 76px;
+        border-radius: 22px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Hot Potato Apps</h1>
-    <p>Fast-paced puzzle games that will challenge your mind and reflexes!</p>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Hot Potato Apps
+      </div>
+      <h1>Fast puzzle games with real personality.</h1>
+      <p class="hero-copy">
+        Quick sessions. Bright ideas. High-score energy. Hot Potato Apps makes polished puzzle
+        games for iPhone and iPad, from word races and pattern battles to the smooth-glide world
+        of Tile Glider.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#games">See the lineup</a>
+        <a class="button button-secondary" href="https://apps.apple.com/us/developer/hot-potato/id289898535" target="_blank" rel="noreferrer">App Store developer page</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat">
+          <strong>3 games</strong>
+          <span>built for quick play sessions and repeat runs</span>
+        </div>
+        <div class="stat">
+          <strong>iPhone + iPad</strong>
+          <span>clean controls, colorful interfaces, and smooth motion</span>
+        </div>
+        <div class="stat">
+          <strong>Solo to competitive</strong>
+          <span>AI play, daily challenges, and leaderboard chasing</span>
+        </div>
+      </div>
+    </section>
 
-    <div class="section">
-      <h2>Word Blitzen</h2>
-      <p>Race against your opponent to complete words from a shared board. Compete head-to-head online or practice against AI.</p>
-      <a class="app-link" href="https://apps.apple.com/us/app/word-blitzen/id6742672151" target="_blank">Download Word Blitzen</a>
+    <section id="games">
+      <div class="section-head">
+        <h2>Current lineup</h2>
+        <p>
+          Each game has its own feel, but they all aim for the same thing: satisfying decisions,
+          readable design, and "one more run" momentum.
+        </p>
+      </div>
+
+      <div class="app-grid">
+        <article class="app-card app-card--tile">
+          <div class="card-top">
+            <span class="status status-soon">Coming Soon</span>
+            <span class="chip">Puzzle</span>
+          </div>
+          <div class="card-head">
+            <div class="icon-shell" aria-hidden="true">
+              <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="boardGradient" x1="74" y1="42" x2="950" y2="982" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#16285C"/>
+                    <stop offset="0.5" stop-color="#091537"/>
+                    <stop offset="1" stop-color="#030817"/>
+                  </linearGradient>
+                  <radialGradient id="glowTopLeft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(258 216) rotate(54.7) scale(520 624)">
+                    <stop stop-color="#274FBB" stop-opacity="0.58"/>
+                    <stop offset="1" stop-color="#274FBB" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="glowBottomRight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(810 822) rotate(180) scale(438 386)">
+                    <stop stop-color="#38DFFF" stop-opacity="0.18"/>
+                    <stop offset="1" stop-color="#38DFFF" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="cellGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(512 512) rotate(90) scale(430)">
+                    <stop stop-color="#35E0FF" stop-opacity="0.1"/>
+                    <stop offset="1" stop-color="#35E0FF" stop-opacity="0"/>
+                  </radialGradient>
+                  <linearGradient id="greenDisc" x1="148" y1="142" x2="366" y2="394" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#8EF4B1"/>
+                    <stop offset="1" stop-color="#34A85F"/>
+                  </linearGradient>
+                  <linearGradient id="blueDisc" x1="660" y1="652" x2="878" y2="904" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#84D2FF"/>
+                    <stop offset="1" stop-color="#2174FF"/>
+                  </linearGradient>
+                  <linearGradient id="redRing" x1="642" y1="126" x2="858" y2="378" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#FFA4A4"/>
+                    <stop offset="1" stop-color="#EB5B5B"/>
+                  </linearGradient>
+                  <linearGradient id="yellowRing" x1="136" y1="636" x2="376" y2="888" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#FFE99E"/>
+                    <stop offset="1" stop-color="#F2C94C"/>
+                  </linearGradient>
+                  <radialGradient id="discHighlight" cx="0" cy="0" r="1" gradientUnits="objectBoundingBox" gradientTransform="translate(0.3 0.26) scale(0.6)">
+                    <stop stop-color="white" stop-opacity="0.84"/>
+                    <stop offset="1" stop-color="white" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <rect width="1024" height="1024" fill="url(#boardGradient)"/>
+                <rect width="1024" height="1024" fill="url(#glowTopLeft)"/>
+                <rect width="1024" height="1024" fill="url(#glowBottomRight)"/>
+                <rect width="1024" height="1024" fill="url(#cellGlow)"/>
+                <line x1="512" y1="0" x2="512" y2="1024" stroke="#0C1636" stroke-width="28" stroke-linecap="round"/>
+                <line x1="0" y1="512" x2="1024" y2="512" stroke="#0C1636" stroke-width="28" stroke-linecap="round"/>
+                <line x1="512" y1="0" x2="512" y2="1024" stroke="#274FBB" stroke-opacity="0.22" stroke-width="8" stroke-linecap="round"/>
+                <line x1="0" y1="512" x2="1024" y2="512" stroke="#274FBB" stroke-opacity="0.22" stroke-width="8" stroke-linecap="round"/>
+                <circle cx="256" cy="256" r="112" fill="url(#greenDisc)"/>
+                <circle cx="256" cy="256" r="112" fill="url(#discHighlight)" fill-opacity="0.46"/>
+                <circle cx="256" cy="256" r="112" stroke="#B6FFD7" stroke-opacity="0.42" stroke-width="6"/>
+                <circle cx="768" cy="256" r="116" fill="none" stroke="url(#redRing)" stroke-width="42"/>
+                <circle cx="768" cy="256" r="116" fill="none" stroke="#FFD9D9" stroke-opacity="0.26" stroke-width="6"/>
+                <circle cx="256" cy="768" r="116" fill="none" stroke="url(#yellowRing)" stroke-width="42"/>
+                <circle cx="256" cy="768" r="116" fill="none" stroke="#FFF4C9" stroke-opacity="0.24" stroke-width="6"/>
+                <circle cx="768" cy="768" r="112" fill="url(#blueDisc)"/>
+                <circle cx="768" cy="768" r="112" fill="url(#discHighlight)" fill-opacity="0.46"/>
+                <circle cx="768" cy="768" r="112" stroke="#A9DEFF" stroke-opacity="0.42" stroke-width="6"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="card-title">Tile Glider</h3>
+              <p class="card-tagline">Glide. Stop. Sink.</p>
+            </div>
+          </div>
+          <p class="card-copy">
+            A sleek route-building puzzle where every move matters. Flick discs across handcrafted
+            boards, collect stars, and master a new daily challenge.
+          </p>
+          <div class="chip-row">
+            <span class="chip">Daily Challenge</span>
+            <span class="chip">Handcrafted worlds</span>
+            <span class="chip">3-star replays</span>
+          </div>
+          <div class="card-actions">
+            <span class="button button-disabled" aria-disabled="true">App Store soon</span>
+          </div>
+        </article>
+
+        <article class="app-card app-card--block">
+          <div class="card-top">
+            <span class="status status-live">Live</span>
+            <span class="chip">Pattern Strategy</span>
+          </div>
+          <div class="card-head">
+            <div class="icon-shell">
+              <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a3/90/93/a39093c4-f86d-c1f3-c6a2-cf658aba5078/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+                alt="Block Blitzen app icon"
+              >
+            </div>
+            <div>
+              <h3 class="card-title">Block Blitzen</h3>
+              <p class="card-tagline">Fast puzzle battles where every placement counts.</p>
+            </div>
+          </div>
+          <p class="card-copy">
+            Race to score with colors, shapes, and smart board control. Set up combos, react
+            quickly, and win short rounds that still have real strategic bite.
+          </p>
+          <div class="chip-row">
+            <span class="chip">Solo or versus</span>
+            <span class="chip">Quick rounds</span>
+            <span class="chip">Shape + color combos</span>
+          </div>
+          <div class="card-actions">
+            <a class="button button-primary" href="https://apps.apple.com/us/app/block-blitzen/id6743097438" target="_blank" rel="noreferrer">Download Block Blitzen</a>
+          </div>
+        </article>
+
+        <article class="app-card app-card--word">
+          <div class="card-top">
+            <span class="status status-live">Live</span>
+            <span class="chip">Word Battle</span>
+          </div>
+          <div class="card-head">
+            <div class="icon-shell">
+              <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b6/ee/ce/b6eece3a-30e5-babb-426b-e8a776d3418b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+                alt="Word Blitzen app icon"
+              >
+            </div>
+            <div>
+              <h3 class="card-title">Word Blitzen</h3>
+              <p class="card-tagline">Head-to-head word races with fast hands and fast reads.</p>
+            </div>
+          </div>
+          <p class="card-copy">
+            Build words from a shared board before your opponent does. Jump into quick online
+            matches, sharpen up against AI, and push your best times higher.
+          </p>
+          <div class="chip-row">
+            <span class="chip">Online matches</span>
+            <span class="chip">AI practice</span>
+            <span class="chip">60-second pressure</span>
+          </div>
+          <div class="card-actions">
+            <a class="button button-primary" href="https://apps.apple.com/us/app/word-blitzen/id6742672151" target="_blank" rel="noreferrer">Download Word Blitzen</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="footer-links">
+      <a href="word_blitzen_privacy_statement.html">Privacy Policy</a>
     </div>
-
-    <div class="divider"></div>
-
-    <div class="section">
-      <h2>Block Blitzen</h2>
-      <p>A colorful strategic puzzle game where you place tiles based on shape and color. Earn points, complete sets, and climb the leaderboard before time runs out!</p>
-      <a class="app-link" href="https://apps.apple.com/us/app/block-blitzen/id6743097438" target="_blank">Download Block Blitzen</a>
-    </div>
-
-    <p style="margin-top: 3em;"><a href="word_blitzen_privacy_statement.html">Privacy Policy</a></p>
-  </div>
+  </main>
 </body>
 </html>
