@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy | Hot Potato Apps</title>
+  <meta
+    name="description"
+    content="Privacy Policy for Hot Potato Apps mobile games and related services."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07111f;
+      --text: #eef4ff;
+      --muted: rgba(226, 234, 255, 0.78);
+      --soft: rgba(226, 234, 255, 0.58);
+      --line: rgba(180, 203, 255, 0.14);
+      --panel: rgba(10, 17, 31, 0.88);
+      --panel-soft: rgba(255, 255, 255, 0.04);
+      --accent: #8ee7ff;
+      --accent-2: #5da8ff;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(57, 114, 255, 0.28), transparent 28%),
+        radial-gradient(circle at 84% 14%, rgba(255, 104, 162, 0.16), transparent 24%),
+        linear-gradient(155deg, #050b17 0%, #081120 38%, #0a1630 100%);
+      color: var(--text);
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    a {
+      color: #bfe6ff;
+      text-decoration: underline;
+      text-decoration-color: rgba(191, 230, 255, 0.42);
+      text-underline-offset: 0.24em;
+    }
+
+    .page {
+      width: min(980px, calc(100% - 1.5rem));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .hero {
+      padding: 22px 4px 18px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-copy {
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .shell {
+      margin-top: 10px;
+      padding: 22px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+        var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      background: var(--panel-soft);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-family: "Sora", sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: -0.04em;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.97rem;
+      line-height: 1.75;
+    }
+
+    .card p:last-child,
+    .card ul:last-child {
+      margin-bottom: 0;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .wide {
+      grid-column: 1 / -1;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .service {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .service strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .service span {
+      display: block;
+      color: var(--soft);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      margin-top: 22px;
+      padding: 0 4px;
+      color: var(--soft);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .grid,
+      .service-list {
+        grid-template-columns: 1fr;
+      }
+
+      .shell {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <a class="back-link" href="index.html">← Back to Hot Potato Apps</a>
+      <h1>Privacy Policy</h1>
+      <p class="hero-copy">
+        This page explains how Hot Potato Apps handles information across its mobile games and
+        related services. Some features only apply when a specific game uses them, such as
+        multiplayer, leaderboards, ads, or in-app purchases.
+      </p>
+      <div class="meta">Effective Date: March 11, 2025</div>
+    </header>
+
+    <section class="shell">
+      <div class="grid">
+        <section class="card">
+          <h2>Information We May Collect</h2>
+          <p>Depending on the app and the features you use, we may receive:</p>
+          <ul>
+            <li>basic device, crash, and performance information</li>
+            <li>game progress, scores, achievements, and leaderboard activity</li>
+            <li>Game Center details if you use Apple multiplayer or leaderboards</li>
+            <li>purchase status for items such as ad removal</li>
+            <li>ad-related and analytics signals used by supported third-party services</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>How We Use Information</h2>
+          <ul>
+            <li>to run game features like saves, leaderboards, multiplayer, and progression</li>
+            <li>to improve stability, fix bugs, and understand overall app performance</li>
+            <li>to support ads and monetization features where enabled</li>
+            <li>to process and restore eligible in-app purchases</li>
+            <li>to maintain the security and integrity of our apps and services</li>
+          </ul>
+        </section>
+
+        <section class="card wide">
+          <h2>Third-Party Services</h2>
+          <p>
+            Our apps may rely on third-party providers. These services operate under their own
+            privacy terms and may handle data according to their own policies.
+          </p>
+          <div class="service-list">
+            <div class="service">
+              <strong>Apple Game Center</strong>
+              <span>Leaderboards, multiplayer, achievements, and related profile data.</span>
+              <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noreferrer">Apple Privacy Policy</a>
+            </div>
+            <div class="service">
+              <strong>Google Firebase</strong>
+              <span>Analytics, backend support, and performance or diagnostic tooling.</span>
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>
+            </div>
+            <div class="service">
+              <strong>Google AdMob</strong>
+              <span>Advertising and related measurement when ad-supported features are enabled.</span>
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>
+            </div>
+            <div class="service">
+              <strong>Apple In-App Purchase</strong>
+              <span>Purchase processing, entitlement checks, and restoration of eligible purchases.</span>
+              <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noreferrer">Apple Privacy Policy</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Data Retention and Security</h2>
+          <p>
+            We keep information only as long as reasonably needed for app functionality, legal
+            compliance, fraud prevention, support, or service improvement. We also use reasonable
+            technical and organizational measures to protect data, but no system can promise
+            absolute security.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Your Choices</h2>
+          <p>
+            You can manage permissions and many privacy-related settings through your device,
+            platform account, or the app itself. Depending on the service involved, you may also
+            be able to manage Game Center, ad, or analytics preferences directly with Apple or
+            Google.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Children's Privacy</h2>
+          <p>
+            We do not knowingly collect personal information from children in a way that violates
+            applicable law. If you believe a child has provided personal information improperly,
+            please contact us so we can review and address the issue.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Policy Updates</h2>
+          <p>
+            We may update this Privacy Policy from time to time. When we do, we will revise the
+            effective date on this page. Continued use of our apps after an update means the
+            revised policy applies.
+          </p>
+        </section>
+
+        <section class="card wide">
+          <h2>Contact</h2>
+          <p>
+            If you have questions about this Privacy Policy, please contact Hot Potato Apps through
+            the website linked from our app pages or our App Store developer page.
+          </p>
+        </section>
+      </div>
+    </section>
+
+    <p class="footer">
+      Hot Potato Apps
+    </p>
+  </main>
+</body>
+</html>
