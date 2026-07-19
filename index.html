@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#091020">
-  <title>Hot Potato Apps | Pinky Pile, Tile Glider, Word Blitzen, Block Blitzen</title>
+  <title>Hot Potato Apps | Chomp Champ, Pinky Pile, Tile Glider, Word Blitzen, Block Blitzen</title>
   <meta
     name="description"
     content="Hot Potato Apps makes fast, stylish puzzle games for quick sessions, daily check-ins, and leaderboard chasing."
@@ -27,6 +27,7 @@
       --radius-lg: 26px;
       --radius-md: 18px;
       --tile-accent: #61d0ff;
+      --chomp-accent: #8cf06b;
       --pinky-accent: #ff7cc8;
       --word-accent: #ff6b92;
       --block-accent: #ffbf4f;
@@ -296,6 +297,10 @@
       --accent-glow: rgba(84, 214, 255, 0.16);
     }
 
+    .app-card--chomp {
+      --accent-glow: rgba(140, 240, 107, 0.18);
+    }
+
     .app-card--pinky {
       --accent-glow: rgba(255, 124, 200, 0.17);
     }
@@ -552,7 +557,7 @@
       </p>
       <div class="stat-row">
         <div class="stat">
-          <strong>4 games</strong>
+          <strong>5 games</strong>
           <span>built for quick play sessions and repeat runs</span>
         </div>
         <div class="stat">
@@ -576,6 +581,46 @@
       </div>
 
       <div class="app-grid">
+        <article class="app-card app-card--chomp">
+          <div class="card-top">
+            <span class="status status-soon">Coming Soon</span>
+            <span class="chip">AR Face-Tracking</span>
+          </div>
+          <div class="card-head">
+            <div class="icon-shell">
+              <img
+                src="chomp-champ-icon.png"
+                alt="Chomp Champ app icon"
+              >
+            </div>
+            <div>
+              <h3 class="card-title">Chomp Champ</h3>
+              <p class="card-tagline">Catch flying food with your face.</p>
+            </div>
+          </div>
+          <p class="card-copy">
+            Turn your face into the controller in a hilarious AR challenge. Chomp matching food,
+            dodge every mismatch, build crazy combos, and chase the Highest Streak leaderboard.
+            Chomp Champ is coming soon to iPhone.
+          </p>
+          <div class="chip-row">
+            <span class="chip">Game Center streaks</span>
+            <span class="chip">Easy to learn</span>
+            <span class="chip">Party-ready chaos</span>
+          </div>
+          <div class="card-actions">
+            <span class="button store-button button-disabled" aria-label="Chomp Champ coming soon to iPhone">
+              <svg class="store-button-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M16.365 12.013c.022 2.434 2.13 3.244 2.152 3.254c-.018.057-.337 1.162-1.108 2.303c-.666.987-1.357 1.97-2.446 1.99c-1.071.02-1.414-.635-2.639-.635c-1.226 0-1.607.615-2.618.655c-1.05.04-1.85-1.055-2.521-2.038c-1.371-1.98-2.419-5.598-1.013-8.04c.699-1.213 1.948-1.982 3.304-2.003c1.031-.021 2.006.695 2.639.695c.633 0 1.82-.858 3.067-.732c.522.022 1.988.211 2.93 1.59c-.076.047-1.75 1.021-1.747 2.961Zm-2.009-6.114c.559-.676.936-1.617.833-2.554c-.805.032-1.777.537-2.354 1.213c-.518.598-.972 1.557-.85 2.475c.898.069 1.812-.457 2.371-1.134Z"/>
+              </svg>
+              <span class="store-button-copy">
+                <span class="store-button-kicker">Coming soon to</span>
+                <span class="store-button-title">iPhone</span>
+              </span>
+            </span>
+          </div>
+        </article>
+
         <article class="app-card app-card--pinky">
           <div class="card-top">
             <span class="status status-live">Live</span>
