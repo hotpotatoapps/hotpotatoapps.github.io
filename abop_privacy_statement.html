@@ -20,9 +20,9 @@
   <h3>Messages Content</h3>
   <p>aBop is designed for use in Apple Messages. The content you choose to send, including Nudge, Surprise, Crossfire, and DRAW messages, is shared with the recipients you select through Apple&apos;s Messages service. We do not operate a service that stores your Messages conversation history or your contacts.</p>
 
-  <h3>DRAW Content and Secure Device Credentials</h3>
-  <p>When you use the cloud option to judge a DRAW game, the prompt and the drawings submitted for that game are sent to our Google Cloud Run service and then to OpenAI for the limited purpose of selecting a winner and generating commentary. The service does not store the drawings or prompt after processing. It records only limited security and operational information needed to protect the service, including App Attest challenges, public-key and credential records, replay counters, request identifiers, device-attestation metadata, and service usage information such as timing and token counts.</p>
-  <p>aBop uses Apple App Attest to help protect the DRAW judging service from unauthorized use. App Attest creates a device-specific credential; we store a protected representation of that credential and related verification information, not your Messages content.</p>
+  <h3>DRAW Content and Device Security</h3>
+  <p>When you use cloud DRAW judging, the prompt and drawings submitted for that game are sent to our secure cloud service and OpenAI solely to select a winner and generate commentary. We do not retain the drawings or prompt after processing.</p>
+  <p>We retain limited security and operational information needed to protect the service, such as secure device-verification records, request identifiers, service timing, and usage information. We use device-security verification to help prevent unauthorized use of cloud DRAW judging; it does not provide us with your Messages content.</p>
 
   <h3>Information Collected Automatically</h3>
   <p>Our service providers may process limited technical information needed to operate the App and its services, such as IP address, device and browser metadata, operating system version, request timing, and error information. We use this information to provide, secure, troubleshoot, and improve the App.</p>
@@ -44,11 +44,11 @@
 
   <h2>Third-Party Services</h2>
 
-  <h3>Apple Messages, Notifications, and App Attest</h3>
-  <p>Apple Messages delivers the messages you choose to send. Apple&apos;s notification and AlarmKit services deliver local reminders that you enable. Apple App Attest is used to verify eligible devices before they may initiate secure DRAW requests. Please refer to Apple&apos;s Privacy Policy for information about how Apple processes data through these services.</p>
+  <h3>Apple Messages and Notifications</h3>
+  <p>Apple Messages delivers the messages you choose to send. Apple&apos;s notification and AlarmKit services deliver local reminders that you enable. Please refer to Apple&apos;s Privacy Policy for information about how Apple processes data through these services.</p>
 
   <h3>OpenAI and Google Cloud</h3>
-  <p>We use Google Cloud Run to operate the secure DRAW judging service and OpenAI to analyze submitted DRAW prompts and drawings and return a winner and commentary. These providers process the information described in the DRAW Content and Secure Device Credentials section only to provide the service to us. For more information, please refer to the Google Privacy Policy and the OpenAI Privacy Policy.</p>
+  <p>We use a secure Google Cloud service to operate cloud DRAW judging and OpenAI to analyze submitted DRAW prompts and drawings and return a winner and commentary. These providers process this information only to provide the service to us. For more information, please refer to the Google Privacy Policy and the OpenAI Privacy Policy.</p>
 
   <h3>Apple Game Center</h3>
   <p>Crossfire Blast uses Apple Game Center for player authentication, invitations, matchmaking, multiplayer play, and related game features. Game Center information is handled by Apple to provide those features. Please refer to Apple&apos;s Privacy Policy for details.</p>
@@ -63,7 +63,7 @@
   <p>Content stored locally remains on your device until you remove it or uninstall the App. DRAW images and prompts processed by our cloud judge are not retained by our service after the judgment is completed. We retain limited security and operational records only as long as reasonably necessary to protect the service, resolve disputes, comply with legal obligations, and enforce our agreements.</p>
 
   <h2>Data Security</h2>
-  <p>We use commercially reasonable safeguards designed to protect the information we process. DRAW cloud access is protected with device-specific Apple App Attest credentials. However, no method of transmission over the internet or electronic storage is completely secure, and we cannot guarantee absolute security.</p>
+  <p>We use commercially reasonable safeguards designed to protect the information we process, including device-security verification for cloud DRAW access. However, no method of transmission over the internet or electronic storage is completely secure, and we cannot guarantee absolute security.</p>
 
   <h2>Your Rights and Choices</h2>
   <p>Depending on your location, you may have rights regarding your personal information, including the right to request access, correction, deletion, or restriction of processing. You can also manage App notification permissions through your device settings, remove local App content, and choose not to use cloud DRAW judging.</p>
