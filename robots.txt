@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hotpotatoapps.github.io/sitemap.xml

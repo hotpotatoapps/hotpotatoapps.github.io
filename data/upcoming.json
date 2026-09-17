@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "abop",
+    "name": "aBop",
+    "icon": "assets/abop.webp",
+    "status": "Coming Soon",
+    "category": "FOR iMESSAGE",
+    "headline": "Your chat. With a playful twist.",
+    "description": "Meet aBop: interactive experiences for iMessage. DRAW, Nudge, Surprise, and games that give your conversations something new to do."
+  },
+  {
+    "slug": "crossfire",
+    "name": "Crossfire Blast",
+    "icon": "assets/crossfire-blast.webp",
+    "status": "Coming Soon",
+    "category": "COMPETITIVE PLAY",
+    "headline": "Slide into your next rivalry.",
+    "description": "Fast, competitive disc-sliding action. Crossfire Blast is on its way, with a new reason to challenge your quick-thinking friends."
+  }
+]

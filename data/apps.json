@@ -1,0 +1,165 @@
+[
+  {
+    "slug": "chomp-champ",
+    "name": "Chomp Champ",
+    "category": "AR face-tracking",
+    "filter": "laughs",
+    "color": "lime",
+    "id": "6776414514",
+    "tagline": "Your face. The controller.",
+    "description": "Catch the matching food. Dodge the rest. Try to keep a straight face in an AR game that turns every chomp into a challenge.",
+    "intro": "Open your mouth to catch flying food, move your head to dodge, and see how long you can keep your streak alive. Chomp Champ brings a little augmented-reality absurdity to solo sessions and time with friends.",
+    "features": [
+      [
+        "High Streak",
+        "Keep catching the right food and climb the Game Center Highest Streak leaderboard."
+      ],
+      [
+        "Easy Mode",
+        "Every three-hit streak takes you up a level. A relaxed way to learn the art of the chomp."
+      ],
+      [
+        "Battle Mode",
+        "Challenge up to three friends in a real-time food battle. Catch, dodge, and outlast your opponents."
+      ]
+    ],
+    "platform": "iPhone",
+    "privacy": "chompchamp_privacy_statement.html"
+  },
+  {
+    "slug": "fake-caller",
+    "name": "Fake Caller",
+    "category": "Classic iPhone nostalgia",
+    "filter": "laughs",
+    "color": "blue",
+    "id": "357715322",
+    "tagline": "A call from the good old days.",
+    "description": "The classic fake incoming call screen returns. Set the caller, pick a ringtone, and bring a little early-iPhone nostalgia to your day.",
+    "intro": "A playful throwback to the original iPhone incoming call screen, rebuilt for modern iPhones. Customize the setup, preview your fake call, and enjoy a little piece of App Store history. These are simulated calls, not real phone calls.",
+    "features": [
+      [
+        "Make it your own",
+        "Choose a caller name, photo, wallpaper, and sound."
+      ],
+      [
+        "Time the moment",
+        "Schedule your fake call with a timer or a custom time, and check your setup with a live preview."
+      ],
+      [
+        "More ways to play",
+        "Try fake FaceTime with custom incoming and callback videos, or import your own audio."
+      ]
+    ],
+    "platform": "iPhone",
+    "privacy": "fake_caller_privacy_statement.html"
+  },
+  {
+    "slug": "pinky-pile",
+    "name": "Pinky Pile",
+    "category": "Physics stacking",
+    "filter": "quick",
+    "color": "pink",
+    "id": "6771943187",
+    "tagline": "A little balance. A lot of wobble.",
+    "description": "Drop a Pinky. Find the balance. Build a delightfully wobbly tower and see how long you can keep the whole thing standing.",
+    "intro": "Simple one-tap controls meet unpredictable physics. Drop Pinkys onto the platform, recover from near disasters, and chase your best pile. Easy to pick up, surprisingly hard to put down.",
+    "features": [
+      [
+        "One tap, one more Pinky",
+        "Time each drop to keep your growing stack balanced."
+      ],
+      [
+        "Playful physics",
+        "Every wobble changes the challenge. Adjust your timing as the pile grows."
+      ],
+      [
+        "Beat your best",
+        "Short sessions make it easy to squeeze in another attempt at your personal record."
+      ]
+    ],
+    "platform": "iPhone",
+    "privacy": "pinkypile_privacy_statement.html"
+  },
+  {
+    "slug": "tile-glider",
+    "name": "Tile Glider",
+    "category": "Thoughtful puzzles",
+    "filter": "puzzles",
+    "color": "lavender",
+    "id": "6760328369",
+    "tagline": "Find your way into the flow.",
+    "description": "Flick discs, connect paths, and discover the perfect solution. Handcrafted puzzles for your next small moment of focus.",
+    "intro": "Plan your route and make every move count. Glide discs across handcrafted boards, earn stars for efficient solutions, and return for a fresh Daily Challenge.",
+    "features": [
+      [
+        "Make the perfect move",
+        "Solve boards in as few moves as possible to earn stars."
+      ],
+      [
+        "A daily reason to return",
+        "Take on a fresh Daily Challenge and compare results through Game Center."
+      ],
+      [
+        "Keep your momentum",
+        "Simple swipe controls and helpful hints keep you moving through the puzzles."
+      ]
+    ],
+    "platform": "iPhone, iPad + Android",
+    "privacy": "tile_glider_privacy_statement.html",
+    "android": "https://play.google.com/store/apps/details?id=com.colorgatejam"
+  },
+  {
+    "slug": "word-blitzen",
+    "name": "Word Blitzen",
+    "category": "Head-to-head wordplay",
+    "filter": "puzzles",
+    "color": "peach",
+    "id": "6742672151",
+    "tagline": "Good with words? Be quick.",
+    "description": "One shared board. Sixty seconds. Race to complete words before your opponent, or sharpen your instincts against the trainer.",
+    "intro": "Spot the word, claim the letters, and beat the clock. Word Blitzen turns a circular letter board into a fast head-to-head challenge, with no waiting for your opponent to take a turn.",
+    "features": [
+      [
+        "Real-time word races",
+        "Compete in 60-second online matches through Game Center."
+      ],
+      [
+        "Practice your pace",
+        "Train against three difficulty levels before taking on other players."
+      ],
+      [
+        "Follow your progress",
+        "Track completion times and compare your results on the leaderboards."
+      ]
+    ],
+    "platform": "iPhone + iPad",
+    "privacy": "word_blitzen_privacy_statement.html"
+  },
+  {
+    "slug": "block-blitzen",
+    "name": "Block Blitzen",
+    "category": "Fast pattern battles",
+    "filter": "quick",
+    "color": "yellow",
+    "id": "6743097438",
+    "tagline": "Think fast. Make it match.",
+    "description": "Match colors and shapes, set up a clever combo, and beat your opponent to the next move. Small rounds with serious strategy.",
+    "intro": "Place tiles on a shared grid while your opponent does the same. Match colors or shapes, look for bonus combinations, and balance a clever plan with quick reactions.",
+    "features": [
+      [
+        "No waiting your turn",
+        "Play head-to-head in real time through Game Center."
+      ],
+      [
+        "Build a bigger combo",
+        "Combine color and shape patterns to earn bonus points."
+      ],
+      [
+        "Find your challenge",
+        "Practice against three AI difficulty levels and track your scores on the leaderboards."
+      ]
+    ],
+    "platform": "iPhone + iPad",
+    "privacy": "block_blitzen_privacy_statement.html"
+  }
+]
