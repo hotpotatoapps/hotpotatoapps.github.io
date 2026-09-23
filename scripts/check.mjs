@@ -37,5 +37,5 @@ for (const app of apps) {
   assert.ok(html.includes(`href="${app.privacy}"`));
 }
 console.log(
-  `PASS: ${files.length} HTML pages, ${links} local links/assets, unique IDs, headings, and all six App Store/privacy destinations.`,
+  `PASS: ${files.length} HTML pages, ${links} local links/assets, unique IDs, headings, and all ${apps.length} App Store/privacy destinations.`,
 );

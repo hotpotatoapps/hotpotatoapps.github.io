@@ -1,5 +1,24 @@
 [
   {
+    "slug": "abop",
+    "screenshot": "assets/abop-screen.jpg",
+    "name": "aBop",
+    "category": "Playful experiences for iMessage",
+    "filter": "laughs",
+    "color": "lavender",
+    "id": "6802109273",
+    "tagline": "Make Messages more fun.",
+    "description": "Challenge friends to a DRAW off, send a Nudge, hide a timed Surprise, or play Crossfire. A little more fun, right inside your conversations.",
+    "intro": "Turn an ordinary message into something you can enjoy together. Open aBop from the Messages app drawer, choose an experience, and send it to a person or group. Recipients need aBop installed to join in.",
+    "features": [
+      ["DRAW together", "Start a timed drawing challenge with a friend or group chat. Up to eight people can draw, with on-device judging and shareable results."],
+      ["Nudge and Surprise", "Send a lightweight reminder or schedule one for the recipient to accept. Hide a message or photo behind a cover until the perfect reveal time."],
+      ["Keep the conversation playing", "Send a Crossfire game through Messages and take turns in the conversation. Creative tools and optional Apple Intelligence features add a personal touch on supported devices."]
+    ],
+    "platform": "iMessage on iPhone + iPad",
+    "privacy": "abop_privacy_statement.html"
+  },
+  {
     "slug": "chomp-champ",
     "name": "Chomp Champ",
     "category": "AR face-tracking",

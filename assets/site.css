@@ -450,6 +450,21 @@ p {
 .feature-copy {
   padding: 56px;
 }
+.feature-abop {
+  background: #e9e1f5;
+}
+.feature-abop .feature-art {
+  background: radial-gradient(circle, #d4c2ee, transparent 67%);
+}
+.feature-abop .feature-copy p:not(.eyebrow) {
+  color: #554566;
+}
+.feature-abop .feature-tags span,
+.feature-abop .feature-rings,
+.feature-abop .feature-rings::before,
+.feature-abop .feature-rings::after {
+  border-color: #a38fb8;
+}
 .feature-copy h2 {
   font-size: clamp(48px, 5vw, 72px);
   margin-bottom: 22px;
