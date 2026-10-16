@@ -15,7 +15,7 @@ for (const file of files) {
   for (const [, ref] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     if (/^(?:https?:|mailto:|data:)/.test(ref)) continue;
     const [target, anchor] = ref.split("#");
-    const destination = target || file;
+    const destination = target?.split("?")[0] || file;
     await fs.access(destination);
     if (anchor) {
       const content = target ? await fs.readFile(destination, "utf8") : html;

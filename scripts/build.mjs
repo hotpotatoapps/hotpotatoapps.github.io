@@ -1,4 +1,9 @@
 import fs from "node:fs/promises";
+import { createHash } from "node:crypto";
+const assetVersions = new Map();
+for (const asset of ["assets/site.css", "assets/site.js"]) {
+  assetVersions.set(asset, createHash("sha256").update(await fs.readFile(asset)).digest("hex").slice(0, 12));
+}
 const apps = JSON.parse(await fs.readFile("data/apps.json", "utf8"));
 const upcoming = JSON.parse(await fs.readFile("data/upcoming.json", "utf8"));
 const origin = "https://hotpotatoapps.github.io";
@@ -18,7 +23,14 @@ const brand = `<a class="brand" href="index.html" aria-label="Hot Potato Apps &a
 const header = (home) =>
   `<a class="skip-link" href="#main">Skip to content</a><header class="site-header wrap">${brand}<nav aria-label="Main navigation"><a href="${home ? "" : "index.html"}#apps">Apps</a><a href="${home ? "" : "index.html"}#about">About</a><a href="${home ? "" : "index.html"}#support">Support</a><a class="nav-contact" href="mailto:hotpotatoapps@gmail.com">Say hello ${arrow}</a></nav></header>`;
 const footer = `<footer class="wrap site-footer"><div>${brand}<p>A little more play in your every day.</p></div><nav aria-label="Footer navigation"><a href="index.html#apps">Explore apps</a><a href="index.html#support">Support &amp; privacy</a><a href="privacy_statement.html">Privacy policy</a><a href="mailto:hotpotatoapps@gmail.com">Contact</a></nav><p class="copyright">&copy; ${new Date().getFullYear()} Hot Potato Apps. Independently made.</p></footer>`;
-function page({
+function page(options) {
+  let html = pageMarkup(options);
+  for (const [asset, version] of assetVersions) {
+    html = html.replaceAll(`"${asset}"`, `"${asset}?v=${version}"`);
+  }
+  return html;
+}
+function pageMarkup({
   title,
   description,
   path = "",
