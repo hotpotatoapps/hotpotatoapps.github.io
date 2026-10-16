@@ -1,4 +1,16 @@
 const filters = document.querySelector(".filters");
+for (const launch of document.querySelectorAll(".video-launch")) {
+  launch.addEventListener("click", (event) => {
+    event.preventDefault();
+    const video = launch.parentElement.querySelector("video");
+    launch.hidden = true;
+    video.hidden = false;
+    video.focus();
+    video.play().catch(() => {
+      // Native controls remain available if the browser declines autoplay.
+    });
+  });
+}
 if (filters) {
   filters.hidden = false;
   const cards = [...document.querySelectorAll("[data-category]")];
