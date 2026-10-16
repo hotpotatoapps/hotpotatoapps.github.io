@@ -429,6 +429,32 @@ p {
 .feature-section {
   padding-top: 65px;
 }
+.app-demo {
+  margin: 32px 0 0;
+  padding: clamp(20px, 4vw, 40px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #e9e1f5;
+  text-align: center;
+}
+.app-demo figcaption strong {
+  display: block;
+  font-size: clamp(22px, 3vw, 32px);
+  letter-spacing: -.04em;
+}
+.app-demo figcaption p {
+  margin: 12px 0 24px;
+  color: #554566;
+}
+.app-demo video {
+  display: block;
+  width: min(100%, 300px);
+  height: auto;
+  aspect-ratio: 2160 / 4692;
+  margin: 0 auto 16px;
+  border-radius: 16px;
+  background: #151515;
+}
 .section-label {
   display: flex;
   justify-content: space-between;
